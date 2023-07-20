@@ -1,0 +1,71 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: {
+    headerInfo: {
+    typeName: 'Reserva',
+    typeNamePlural: 'Reservas',
+    title: {
+        type: #STANDARD,
+        value: 'BookingID'
+    }
+} }
+annotate view zmgbc_abooking with
+{
+@UI.facet: [{ id: 'Booking',
+purpose: #STANDARD,
+type: #IDENTIFICATION_REFERENCE ,
+label: 'Booking',
+position: 10 }]
+@Search.defaultSearchElement: true
+TravelID;
+
+@UI: { lineItem: [ { position: 20, importance:
+#HIGH } ],
+identification: [ { position: 20 } ] }
+@Search.defaultSearchElement: true
+BookingID;
+
+@UI: { lineItem: [ { position: 30, importance:
+#HIGH } ],
+identification: [ { position: 30 } ] }
+BookingDate;
+
+@UI: { lineItem: [ { position: 40, importance:
+#HIGH } ],
+identification: [ { position: 40 } ],
+selectionField: [{ position: 10 }]
+}
+@Search.defaultSearchElement: true
+CustomerID;
+
+@UI: { lineItem: [ { position: 50, importance:
+#HIGH } ],
+identification: [ { position: 50 } ] }
+CarrierID;
+
+@UI: { lineItem: [ { position: 60, importance:
+#HIGH } ],
+identification: [ { position: 60 } ] }
+ConnectionID;
+
+@UI: { lineItem: [ { position: 70, importance:
+#HIGH } ],
+identification: [ { position: 70 } ] }
+FlightDate;
+
+@UI: { lineItem: [ { position: 80, importance:
+#HIGH } ],
+identification: [ { position: 80 } ] }
+FlightPrice;
+
+@UI: { lineItem: [ { position: 90, importance:
+#HIGH, label: 'Status' } ],
+identification: [ { position: 90, label: 'Status
+[N(New)| X(Canceled)| B(Booked)]' } ] }
+BookingStatus;
+
+/* Admininstrative fields */
+@UI.hidden: true
+LastChangedAt;
+
+}

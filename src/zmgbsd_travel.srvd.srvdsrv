@@ -1,0 +1,15 @@
+@EndUserText.label: 'Vuelo'
+define service Zmgbsd_travel {
+  expose zmgbc_travel as Travel;
+  expose zmgbc_booking as Booking;
+  expose zmgbc_booksuppl as BookingSupplement;
+  expose /DMO/I_Supplement as Supplement;
+  expose /DMO/I_SupplementText as SupplementText;
+  expose /DMO/I_Customer as Passenger;
+  expose /DMO/I_Agency as Agency;
+  expose /DMO/I_Carrier as Airline;
+  expose /DMO/I_Connection as FlightClonnection;
+  expose /DMO/I_Flight as Flight;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+}

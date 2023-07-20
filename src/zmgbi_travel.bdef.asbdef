@@ -1,0 +1,40 @@
+managed implementation in class zbp_mgbi_travel unique;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for zmgbi_travel alias Travel
+persistent table zmgbt_travel
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Booking { create; }
+}
+
+define behavior for zmgbi_booking alias Booking
+persistent table zmgbt_booking
+lock dependent by _Travel
+authorization dependent by _Travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) travel_id;
+  association _Travel;
+  association _BookingSupplement { create; }
+}
+
+define behavior for zmgbi_booksuppl alias Supplement
+persistent table zmgbt_booksuppl
+lock dependent by _Travel
+authorization dependent by _Travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) travel_id, booking_id;
+  association _Travel;
+  association _Booking;
+}

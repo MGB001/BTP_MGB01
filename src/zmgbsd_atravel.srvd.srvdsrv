@@ -1,0 +1,8 @@
+@EndUserText.label: 'Aprobación Vuelo'
+define service Zmgbsd_atravel {
+  expose zmgbc_atravel as Travel;
+  expose zmgbc_abooking as Booking;
+  expose /DMO/I_Customer as Passenger;
+  expose /DMO/I_Agency as Agency;
+  expose I_Currency as Currency;
+}
